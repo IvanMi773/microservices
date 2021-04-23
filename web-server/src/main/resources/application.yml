@@ -1,9 +1,8 @@
 spring:
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/acocunt-service
+  config:
+    name: web-service
   application:
-    name: account-service
+    name: web-service
 
 eureka:
   client:
@@ -14,4 +13,4 @@ eureka:
       instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
 
 server:
-  port: 8081
+  port: 8082
