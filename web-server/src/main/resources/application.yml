@@ -1,6 +1,4 @@
 spring:
-  config:
-    name: web-service
   application:
     name: web-service
 
@@ -9,8 +7,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
   instance:
-    metadataMap:
-      instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    instanceId: ${spring.application.name}:${random.uuid}
 
 server:
-  port: 8082
+  port: 0

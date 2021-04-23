@@ -19,6 +19,11 @@ public class WebAccountsController {
         this.accountsService = accountsService;
     }
 
+    @GetMapping
+    public String hello () {
+        return "null";
+    }
+
     @GetMapping("/{accountNumber}")
     public Account hello (@PathVariable String accountNumber) {
         try {

@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      routes:
+        - id: web-service
+          uri: lb://web-service
+          predicates:
+            - Path=/api/v1
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instanceId: ${spring.application.name}:${random.uuid}
