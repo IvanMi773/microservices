@@ -13,9 +13,23 @@ spring:
           uri: lb://web-service
           predicates:
             - Path=/api/v1
+      defaultFilters: TokenRelay
     loadbalancer:
       ribbon:
         enabled: false
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8180/auth/realms/microservices-realm
+        registration:
+          spring-cloud-gateway-client:
+            client-id: spring-cloud-gateway-client
+            client-secret: 73e2fb6d-5676-48ef-a4f9-661d79016676
+            provider: keycloak
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/login/oauth2/code/spring-cloud-gateway-client
 
 eureka:
   client:
