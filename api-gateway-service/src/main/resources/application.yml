@@ -9,27 +9,37 @@ spring:
           lower-case-service-id: true
 
       routes:
-        - id: web-service
-          uri: lb://web-service
+        - id: post-service
+          uri: lb://post-service
           predicates:
-            - Path=/api/v1
-      defaultFilters: TokenRelay
+            - Path=/api/v1/post/**
+
+        - id: account-service
+          uri: lb://account-service
+          predicates:
+            - Path=/api/v1/account/**
+
+        - id: genre-service
+          uri: lb://genre-service
+          predicates:
+            - Path=/api/v1/genre/**
+
     loadbalancer:
       ribbon:
         enabled: false
-  security:
-    oauth2:
-      client:
-        provider:
-          keycloak:
-            issuer-uri: http://localhost:8180/auth/realms/microservices-realm
-        registration:
-          spring-cloud-gateway-client:
-            client-id: spring-cloud-gateway-client
-            client-secret: 73e2fb6d-5676-48ef-a4f9-661d79016676
-            provider: keycloak
-            authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8080/login/oauth2/code/spring-cloud-gateway-client
+#  security:
+#    oauth2:
+#      client:
+#        provider:
+#          keycloak:
+#            issuer-uri: http://localhost:8180/auth/realms/microservices-realm
+#        registration:
+#          spring-cloud-gateway-client:
+#            client-id: spring-cloud-gateway-client
+#            client-secret: 545ea4d5-2e1f-46b1-8e8d-154aa2671c6d
+#            provider: keycloak
+#            authorization-grant-type: authorization_code
+#            redirect-uri: http://localhost:8080/login/oauth2/code/spring-cloud-gateway-client
 
 eureka:
   client:

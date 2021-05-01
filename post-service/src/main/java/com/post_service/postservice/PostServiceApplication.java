@@ -1,15 +1,17 @@
-package com.api_gateway_service.apigatewayservice;
+package com.post_service.postservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class ApiGatewayServiceApplication {
+@EnableFeignClients
+public class PostServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiGatewayServiceApplication.class, args);
+		SpringApplication.run(PostServiceApplication.class, args);
 	}
 
 }

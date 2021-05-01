@@ -14,6 +14,11 @@ public class AccountController {
         this.accountService = accountService;
     }
 
+    @GetMapping()
+    public String test () {
+        return "test";
+    }
+
     @PostMapping
     public String save (@RequestBody Account account) {
         return accountService.save(account);
