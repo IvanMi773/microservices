@@ -4,6 +4,17 @@ spring:
       uri: mongodb://localhost:27017/post-service
   application:
     name: post-service
+#  rabbitmq:
+#    host: localhost
+#    port: 5673
+#    username: guest
+#    password: guest
+#  cloud:
+#    stream:
+#      bindings:
+#        notificationEventSupplier-out-0:
+#          destination: notification-events
+#      source: notificationEventSupplier
 
 server:
   port: 0
