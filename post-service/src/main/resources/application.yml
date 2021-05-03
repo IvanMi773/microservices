@@ -9,12 +9,12 @@ spring:
 #    port: 5673
 #    username: guest
 #    password: guest
-#  cloud:
-#    stream:
-#      bindings:
-#        notificationEventSupplier-out-0:
-#          destination: notification-events
-#      source: notificationEventSupplier
+  cloud:
+    stream:
+      bindings:
+        notificationEventSupplier-out-0:
+          destination: notification-events
+      source: notificationEventSupplier
 
 server:
   port: 0

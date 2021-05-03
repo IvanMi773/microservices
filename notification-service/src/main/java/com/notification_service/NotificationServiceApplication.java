@@ -1,8 +1,6 @@
-package com.notification_service.notificationservice;
+package com.notification_service;
 
-import com.notification_service.notificationservice.service.EmailSender;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import java.util.function.Consumer;
 
 @SpringBootApplication
+@EnableEurekaClient
 public class NotificationServiceApplication {
 
 	public static void main(String[] args) {
@@ -17,10 +16,7 @@ public class NotificationServiceApplication {
 	}
 
 	@Bean
-	public Consumer<String> notificationEventSupplier() {
-		System.out.println("ping");
-		return message -> {
-			System.out.println(message);
-		};
+	public Consumer<String> notificationEventSupplier () {
+		return System.out::println;
 	}
 }
