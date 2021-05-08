@@ -1,5 +1,6 @@
 package com.notification_service;
 
+import com.notification_service.service.EmailService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -17,6 +18,6 @@ public class NotificationServiceApplication {
 
 	@Bean
 	public Consumer<String> notificationEventSupplier () {
-		return System.out::println;
+		return message -> new EmailService().sendEmail(message);
 	}
 }
