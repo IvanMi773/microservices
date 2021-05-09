@@ -22,6 +22,11 @@ public class PostController {
         return postService.getAllPosts();
     }
 
+    @GetMapping("/t")
+    public String test () {
+        return "postService.getAllPosts()";
+    }
+
     @PostMapping
     public String save (@RequestBody Post post) {
         return postService.createPost(post);

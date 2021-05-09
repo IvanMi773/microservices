@@ -14,8 +14,7 @@ public class Post {
     private String description;
     private Date created_at;
 
-    public Post(String id, String title, String description, Date created_at) {
-        this.id = id;
+    public Post(String title, String description, Date created_at) {
         this.title = title;
         this.description = description;
         this.created_at = created_at;
