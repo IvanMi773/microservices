@@ -19,8 +19,7 @@ class PostRepositoryTest {
     public void getTitleById () {
         Post post = postRepository.save(new Post(
                 "test",
-                "test test test",
-                new Date()
+                "test test test"
         ));
 
         assertThat(postRepository.findByTitle(post.getTitle())).isNotNull();

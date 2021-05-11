@@ -14,10 +14,10 @@ public class Post {
     private String description;
     private Date created_at;
 
-    public Post(String title, String description, Date created_at) {
+    public Post(String title, String description) {
         this.title = title;
         this.description = description;
-        this.created_at = created_at;
+        this.created_at = new Date();
     }
 
     public Post() {

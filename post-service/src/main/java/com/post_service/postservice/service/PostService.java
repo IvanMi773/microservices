@@ -1,6 +1,7 @@
 package com.post_service.postservice.service;
 
 import com.post_service.postservice.client.GenreClient;
+import com.post_service.postservice.exception.CustomException;
 import com.post_service.postservice.model.Genre;
 import com.post_service.postservice.model.Post;
 import com.post_service.postservice.repository.PostRepository;
@@ -41,6 +42,11 @@ public class PostService {
     }
 
     public String createPost (Post post) {
+        var posts = postRepository.findByTitle(post.getTitle());
+
+        if (posts.size() > 0) {
+            throw new CustomException("Post with this title is already exists");
+        }
         postRepository.save(post);
 
         return post.getId();
